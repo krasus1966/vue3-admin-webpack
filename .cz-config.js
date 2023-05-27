@@ -23,7 +23,6 @@ module.exports = {
     footer: '请输入要关闭的issue(可选)：',
     confirmCommit: '确认使用以上信息提交？(y/n/e/h)：'
   },
-  askAnswered: true,
   allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   // // limit subject length
