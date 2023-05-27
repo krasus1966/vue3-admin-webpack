@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Home1231</router-link> |
+    <router-link to="/">Home12311</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
