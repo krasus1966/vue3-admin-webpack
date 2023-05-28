@@ -1,14 +1,14 @@
 import { createStore } from 'vuex'
+import user from '@/views/login/store/user'
+import getters from '@/store/getters'
+import app from '@/store/modules/app'
+import theme from '@/store/modules/theme'
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+  getters,
   modules: {
+    user,
+    app,
+    theme
   }
 })

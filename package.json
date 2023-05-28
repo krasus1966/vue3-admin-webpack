@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "commit": "git-cz",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "commit": "git-cz"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.4.0",
     "core-js": "^3.30.2",
+    "element-plus": "^2.3.5",
+    "ks-vue3-component": "^0.0.1-alpha-1",
+    "md5": "^2.3.0",
+    "qs": "^6.11.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.1",
     "vuex": "^4.1.0"
@@ -32,12 +38,9 @@
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
-    "sass-loader": "^13.3.0"
-  },
-  "lint-staged": {
-    "src/**/*.{js,vue}": [
-      "eslint--fix"
-    ]
+    "sass-loader": "^13.3.0",
+    "svg-sprite-loader": "^6.0.11",
+    "vue-cli-plugin-element-plus": "~0.0.13"
   },
   "config": {
     "commitizen": {
@@ -49,5 +52,10 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint--fix"
+    ]
   }
 }
