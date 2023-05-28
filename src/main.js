@@ -5,8 +5,6 @@ import store from './store'
 import Init from '@/plugins/init'
 // element-plus
 import ElementPlus from '@/plugins/element'
-// icons
-import Icons from '@/plugins/icons'
 // 自己的组件
 import KsComponent from '@/plugins/kscomponent'
 import * as Icons2 from '@element-plus/icons-vue'
@@ -18,5 +16,4 @@ for (const i in Icons2) {
 }
 Init(app)
 ElementPlus(app)
-Icons(app)
 app.use(KsComponent).use(store).use(router).mount('#app')

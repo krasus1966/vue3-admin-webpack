@@ -65,22 +65,26 @@ service.interceptors.response.use(
   },
   (error) => {
     try {
-      // 无授权
-      if (error.response.status === 401) {
-        store.dispatch('user/logout')
-        ElMessage.error(error.response.data.msg)
-      }
-      // 有服务端提示信息
-      if (error.response.data && error.response.data.msg) {
-        ElMessage.error(error.response.data.msg)
-      } else {
-        if (error.response.status === 500) {
-          ElMessage.error('请求服务器接口失败！')
-        } else if (error.response.status === 404) {
-          ElMessage.error('请求接口地址不存在！')
-        } else {
-          ElMessage.error(error.message)
+      if (error.response) {
+        // 无授权
+        if (error.response.status === 401) {
+          store.dispatch('user/logout')
+          ElMessage.error(error.response.data.msg)
         }
+        // 有服务端提示信息
+        if (error.response.data && error.response.data.msg) {
+          ElMessage.error(error.response.data.msg)
+        } else {
+          if (error.response.status === 500) {
+            ElMessage.error('请求服务器接口失败！')
+          } else if (error.response.status === 404) {
+            ElMessage.error('请求接口地址不存在！')
+          } else {
+            ElMessage.error(error.message)
+          }
+        }
+      } else {
+        ElMessage.error(error.message)
       }
     } catch (e) {
       ElMessage.error('获取返回值失败')

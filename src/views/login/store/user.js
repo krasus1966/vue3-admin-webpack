@@ -1,4 +1,4 @@
-import { getUserInfo, loginNoEncode, logout } from '.././api/auth'
+import { getUserInfo, loginNoEncode, logout } from '@/views/login/api/auth'
 import md5 from 'md5'
 import { getItem, removeAllItem, setItem } from '@/util/storage'
 import { TOKEN } from '@/constant'
@@ -84,7 +84,7 @@ export default {
 
     logout() {
       this.commit('user/setToken', '')
-      this.commit('user/setuserInfo', {})
+      this.commit('user/setUserInfo', {})
       removeAllItem()
       logout()
       // TODO 清理权限

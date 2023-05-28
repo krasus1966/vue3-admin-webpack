@@ -1,110 +1,46 @@
 <template>
-  <el-container>
-    <el-aside width="auto">
-      <ks-menu
-        :collapse="collapse"
-        :data="data"
-        :router="true"
-        :defaultActive="$route.path"
-      ></ks-menu>
-    </el-aside>
+  <el-container
+    style="height: 100%"
+    direction="vertical"
+    v-if="layoutType === 'basic'"
+  >
+    <nav-bar :show-left-info="true" :show-center-info="false" />
+    <el-divider style="margin-top: 0; margin-bottom: 0" />
     <el-container>
-      <el-header>
-        <nav-header v-model:collapse="collapse"></nav-header>
-      </el-header>
+      <side-bar :show-logo="false" />
       <el-main>
         <router-view></router-view>
       </el-main>
     </el-container>
+    <el-divider style="margin-top: 0; margin-bottom: 24px" />
+    <foot-bar />
+  </el-container>
+  <el-container
+    style="height: 100%"
+    direction="vertical"
+    v-else-if="layoutType === 'basic2'"
+  >
+    <el-container>
+      <side-bar :show-logo="true" />
+      <el-container direction="vertical">
+        <nav-bar :show-left-info="false" :show-center-info="false" />
+        <el-main>
+          <router-view></router-view>
+        </el-main>
+      </el-container>
+    </el-container>
+    <el-divider style="margin-top: 0; margin-bottom: 24px" />
+    <foot-bar />
   </el-container>
 </template>
 
 <script setup>
-// import kmenu from '@/layout/kmenu'
-import NavHeader from '@/layout/navHeader'
+import NavBar from '@/layout/navBar'
+import SideBar from '@/layout/sideBar'
+import FootBar from '@/layout/footBar'
 import { ref } from 'vue'
 
-const collapse = ref(false)
-const data = [
-  {
-    name: '首页',
-    index: '/',
-    icon: 'HomeFilled'
-  },
-  {
-    name: '图标选择器',
-    index: '/chooseIcon',
-    icon: 'Check'
-  },
-  {
-    name: '省市区选择',
-    index: '/chooseArea',
-    icon: 'Location'
-  },
-  {
-    name: '趋势标记',
-    index: '/trend',
-    icon: 'Sort'
-  },
-  {
-    name: '时间选择',
-    index: '/chooseTime',
-    icon: 'Timer'
-  },
-  {
-    name: '通知菜单',
-    index: '/notification',
-    icon: 'Bell'
-  },
-  {
-    name: '导航菜单',
-    index: '/menu',
-    icon: 'Menu'
-  },
-  {
-    name: '城市选择',
-    index: '/chooseCity',
-    icon: 'Guide'
-  },
-  {
-    name: '进度条',
-    index: '/progress',
-    icon: 'DArrowRight'
-  },
-  {
-    name: '日历',
-    index: '/calendar',
-    icon: 'ScaleToOriginal'
-  },
-  {
-    name: '表单',
-    index: '/form',
-    icon: 'Setting'
-  },
-  {
-    name: '表格',
-    index: '/table',
-    icon: 'ShoppingBag'
-  },
-  {
-    name: '文件预览',
-    index: '/preview',
-    icon: 'ShoppingBag'
-  }
-]
+const layoutType = ref('basic')
 </script>
 
-<style lang="scss" scoped>
-.el-aside {
-  display: flex;
-}
-
-.el-header {
-  padding: 0;
-  border-bottom: 1px solid #eee;
-}
-svg {
-  width: 1em;
-  height: 1em;
-}
-</style>
+<style lang="scss" scoped></style>

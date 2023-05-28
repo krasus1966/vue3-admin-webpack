@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import layout from '@/layout'
-import notFoundPage from '@/layout/notfound/404.vue'
+import notFoundPage from '@/layout/base/404.vue'
 import test from '@/views/test.vue'
 import loginPage from '@/views/login/router'
 

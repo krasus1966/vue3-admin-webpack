@@ -5,6 +5,7 @@ import request from '@/util/request'
  */
 export const login = (data) => {
   return request({
+    baseURL: '/api',
     url: '/auth/login',
     method: 'POST',
     data
@@ -39,6 +40,7 @@ export const getUserInfo = () => {
 
 export const logout = () => {
   return request({
+    baseURL: '/api',
     url: '/auth/logout',
     method: 'POST'
   })

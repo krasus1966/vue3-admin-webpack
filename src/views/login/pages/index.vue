@@ -12,10 +12,11 @@
       <el-form-item prop="username">
         <el-col :span="2">
           <span class="svg-container">
-            <svg-icon
+            <ks-svg-icon
               source="network"
               icon="https://res.lgdsunday.club/user.svg"
-            ></svg-icon>
+              style="width: 1em; height: 1em"
+            />
           </span>
         </el-col>
         <el-col :span="22">
@@ -31,22 +32,23 @@
       <el-form-item prop="password">
         <el-col :span="2">
           <span class="svg-container">
-            <svg-icon source="element" icon="lock" />
+            <ks-svg-icon icon="lock" />
           </span>
         </el-col>
         <el-col :span="20">
           <el-input
             placeholder="请输入密码"
             name="password"
-            type="password"
+            :type="passwordType"
             v-model="loginForm.password"
           />
         </el-col>
         <el-col :span="2">
           <span class="show-pwd" @click="onChangePwdType">
-            <svg-icon
+            <ks-svg-icon
               :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
               source="self"
+              style="width: 1em; height: 1em"
             />
           </span>
         </el-col>
@@ -63,7 +65,6 @@
 </template>
 
 <script setup>
-import SvgIcon from '@/components/SvgIcon/index.vue'
 import { ref } from 'vue'
 import { validatePassword } from '@/views/login/rules'
 import { useStore } from 'vuex'
@@ -174,7 +175,7 @@ $cursor: #fff;
   }
 
   .svg-container {
-    //padding: 6px 5px 6px 15px;
+    padding: 6px 5px 6px 15px;
     color: $dark_gray;
     vertical-align: middle;
     display: inline-block;
@@ -192,6 +193,7 @@ $cursor: #fff;
   }
 
   .show-pwd {
+    padding: 6px 5px 6px 15px;
     position: inherit;
     right: 10px;
     font-size: 16px;
